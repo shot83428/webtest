@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\st\\web\\web.csproj",
+      "projectUniqueName": "E:\\st\\webtest\\web.csproj",
       "projectName": "web",
-      "projectPath": "E:\\st\\web\\web.csproj",
+      "projectPath": "E:\\st\\webtest\\web.csproj",
       "packagesPath": "C:\\Users\\K1560\\.nuget\\packages\\",
-      "outputPath": "E:\\st\\web\\obj\\",
+      "outputPath": "E:\\st\\webtest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\K1560\\AppData\\Roaming\\NuGet\\NuGet.Config",
