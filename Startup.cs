@@ -24,42 +24,11 @@ namespace web
             Program.Output("Startup ConfigureServices - Called.");
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        // week 1 test 
-        // public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        // {
-        //     if (env.IsDevelopment())
-        //     {
-        //         app.UseDeveloperExceptionPage();
-        //     }
-
-        //     app.UseRouting();
-
-        //     app.UseEndpoints(endpoints =>
-        //     {
-        //         endpoints.MapGet("/", async context =>
-        //         {
-        //             await context.Response.WriteAsync("Hello World!");
-        //         });
-        //     });
-        // }
-        //day 2
-        public void Configure(IApplicationBuilder app, IHostApplicationLifetime appLifetime)
+        
+        //day3
+        public void Configure(IApplicationBuilder app)
         {
-            appLifetime.ApplicationStarted.Register(() => { Program.Output("ApplicationLifetime - Started."); });
-            appLifetime.ApplicationStopping.Register(() => { Program.Output("ApplicationLifetime - Stopping"); });
-            appLifetime.ApplicationStopped.Register(() => { Thread.Sleep(5 * 1000); Program.Output("ApplicationLifetime - Stopped"); });
-            app.Run(async (context)=>{await context.Response.WriteAsync("HelloWorld!");});
-            
-            var thread = new Thread(new ThreadStart(() =>
-            {
-                Thread.Sleep(5 * 1000);
-                Program.Output("Trigger stop WebHost");
-                appLifetime.StopApplication();
-            }));
-            thread.Start();
-            
-            Program.Output("Startup.Configure - Called");
-
+           app.UseMiddleware<FirstMiddleware>();
         }
     }
 }
